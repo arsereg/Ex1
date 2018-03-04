@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DataAcess.Mapper
 {
-    public class CustomerMapper : EntityMapper, ISqlStaments, IObjectMapper
+    public class ConsultaMapper : EntityMapper, ISqlStaments, IObjectMapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_NAME = "NAME";

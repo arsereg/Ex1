@@ -6,20 +6,20 @@ using DataAcess.Dao;
 
 namespace DataAcess.Crud
 {
-    public class CustomerCrudFactory : CrudFactory
+    public class ConsultaCrudFactory : CrudFactory
     {
-        CustomerMapper mapper;
+        ConsultaMapper mapper;
 
-        public CustomerCrudFactory() : base()
+        public ConsultaCrudFactory() : base()
         {
-            mapper = new CustomerMapper();
+            mapper = new ConsultaMapper();
             dao = SqlDao.GetInstance();
         }
 
         public override void Create(BaseEntity entity)
         {
-                var customer = (Customer)entity;
-                var sqlOperation = mapper.GetCreateStatement(customer);
+                var Consulta = (Consulta)entity;
+                var sqlOperation = mapper.GetCreateStatement(Consulta);
 
                 dao.ExecuteProcedure(sqlOperation);
         }
@@ -40,7 +40,7 @@ namespace DataAcess.Crud
 
         public override List<T> RetrieveAll<T>()
         {
-            var lstCustomers = new List<T>();
+            var lstConsultas = new List<T>();
             
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetriveAllStatement());
             var dic = new Dictionary<string, object>();
@@ -49,23 +49,23 @@ namespace DataAcess.Crud
                 var objs = mapper.BuildObjects(lstResult);
                 foreach (var c in objs)
                 {
-                    lstCustomers.Add((T)Convert.ChangeType(c, typeof(T)));
+                    lstConsultas.Add((T)Convert.ChangeType(c, typeof(T)));
                 }
             }
            
-            return lstCustomers;
+            return lstConsultas;
         }
 
         public override void Update(BaseEntity entity)
         {
-            var customer = (Customer)entity;
-            dao.ExecuteProcedure(mapper.GetUpdateStatement(customer));
+            var Consulta = (Consulta)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateStatement(Consulta));
         }
 
         public override void Delete(BaseEntity entity)
         {
-            var customer = (Customer)entity;
-            dao.ExecuteProcedure(mapper.GetDeleteStatement(customer));
+            var Consulta = (Consulta)entity;
+            dao.ExecuteProcedure(mapper.GetDeleteStatement(Consulta));
         }
     }
 }

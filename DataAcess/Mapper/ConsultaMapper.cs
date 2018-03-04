@@ -6,21 +6,19 @@ namespace DataAcess.Mapper
 {
     public class ConsultaMapper : EntityMapper, ISqlStaments, IObjectMapper
     {
-        private const string DB_COL_ID = "ID";
-        private const string DB_COL_NAME = "NAME";
-        private const string DB_COL_LAST_NAME= "LAST_NAME";
-        private const string DB_COL_AGE = "AGE";
+        private const string DB_COL_ID_CONSULTA = "id_consulta";
+        private const string DB_COL_ID_TRADUCCION = "id_traduccion";
+        private const string DB_COL_NAME= "nombre_usuario";
 
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation {ProcedureName = "CRE_CUSTOMER_PR"};
+            var operation = new SqlOperation {ProcedureName = "PA_REGISTRAR_CONSULTA"};
 
-            var c = (Customer) entity;            
-            operation.AddVarcharParam(DB_COL_ID, c.Id);
-            operation.AddVarcharParam(DB_COL_NAME, c.Name);
-            operation.AddVarcharParam(DB_COL_LAST_NAME, c.LastName);
-            operation.AddIntParam(DB_COL_AGE, c.Age);
+            var c = (Consulta) entity;            
+            operation.AddIntParam(DB_COL_ID_CONSULTA, c.Id_Consulta);
+            operation.AddIntParam(DB_COL_ID_TRADUCCION, c.Id_traduccion);
+            operation.AddVarcharParam(DB_COL_NAME, c.Nombre_usuario);
 
             return operation;
         }
@@ -28,40 +26,22 @@ namespace DataAcess.Mapper
 
         public SqlOperation GetRetriveStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation {ProcedureName = "RET_CUSTOMER_PR"};
-
-            var c = (Customer)entity;
-            operation.AddVarcharParam(DB_COL_ID, c.Id);
-         
-            return operation;
+            throw new System.NotImplementedException();
         }
 
         public SqlOperation GetRetriveAllStatement()
         {
-            var operation = new SqlOperation { ProcedureName = "RET_ALL_CUSTOMER_PR" };            
-            return operation;
+            throw new System.NotImplementedException();
         }
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "UPD_CUSTOMER_PR" };
-
-            var c = (Customer)entity;
-            operation.AddVarcharParam(DB_COL_ID, c.Id);
-            operation.AddVarcharParam(DB_COL_NAME, c.Name);
-            operation.AddVarcharParam(DB_COL_LAST_NAME, c.LastName);
-            operation.AddIntParam(DB_COL_AGE, c.Age);
-
-            return operation;
+            throw new System.NotImplementedException();
         }
 
         public SqlOperation GetDeleteStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "DEL_CUSTOMER_PR" };
-
-            var c = (Customer)entity;
-            operation.AddVarcharParam(DB_COL_ID, c.Id);
-            return operation;
+            throw new System.NotImplementedException();
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
@@ -79,12 +59,12 @@ namespace DataAcess.Mapper
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var customer = new Customer
+            var customer = new Consulta
             {
-                Id = GetStringValue(row, DB_COL_ID),
-                Name = GetStringValue(row, DB_COL_NAME),
-                LastName = GetStringValue(row, DB_COL_LAST_NAME),
-                Age = GetIntValue(row, DB_COL_AGE)
+                Id_Consulta = GetIntValue(row, DB_COL_ID_CONSULTA),
+                Id_traduccion = GetIntValue(row, DB_COL_ID_TRADUCCION),
+                Nombre_usuario = GetStringValue(row, DB_COL_NAME)
+                
             };
 
             return customer;

@@ -11,7 +11,7 @@ namespace DataAcess.Dao
     public class SqlDao
     {   
                      
-       private const string CONNECTION_STRING = "Data Source=.;Initial Catalog=MY_DATA_BASE;Integrated Security=True;Pooling=False";
+       private const string CONNECTION_STRING = "Data Source=DESKTOP-J78VJ3J;Initial Catalog=Polibot;Integrated Security=True";
        
        private static SqlDao instance;
 

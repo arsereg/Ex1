@@ -1,6 +1,5 @@
 ﻿using DataAcess.Crud;
 using Entities_POJO;
-using Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,25 +19,8 @@ namespace Testing
 
         public void Create(Customer customer)
         {
-            try
-            {
+
                 var c = crudCustomer.Retrieve<Customer>(customer);
-
-                if (c != null)
-                {
-                    //Customer already exist
-                    throw new BussinessException(3);
-                }
-
-                if (customer.Age >= 18)
-                    crudCustomer.Create(customer);
-                else
-                    throw new BussinessException(2);
-            }
-            catch(Exception ex)
-            {
-                ExceptionManager.GetInstance().Process(ex);
-            }
         }
 
         public List<Customer> RetrieveAll()

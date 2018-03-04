@@ -40,10 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crud\AppMessagesCrudFactory.cs" />
     <Compile Include="Crud\CustomerCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
-    <Compile Include="Mapper\AppMessageMapper.cs" />
     <Compile Include="Mapper\CustomerMapper.cs" />
     <Compile Include="Mapper\EntityMapper.cs" />
     <Compile Include="Mapper\IObjectMapper.cs" />

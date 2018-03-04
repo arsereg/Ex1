@@ -10,7 +10,10 @@ namespace Entities_POJO
     {
         public int Id_Consulta { get; set; }
         public int Id_traduccion { get; set; }
+        public string Palabra{ get; set; }
+        public string Traduccion { get; set; }
         public string Nombre_usuario { get; set; }
+        
 
         public Consulta()
         {

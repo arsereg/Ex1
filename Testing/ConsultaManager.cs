@@ -19,8 +19,7 @@ namespace Testing
 
         public void Create(Consulta Consulta)
         {
-
-                var c = crudConsulta.Retrieve<Consulta>(Consulta);
+            crudConsulta.Create(Consulta);
         }
 
         public List<Consulta> RetrieveAll()

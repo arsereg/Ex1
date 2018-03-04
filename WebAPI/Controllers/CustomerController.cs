@@ -1,6 +1,5 @@
 ﻿using CoreAPI;
 using Entities_POJO;
-using Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,36 +11,30 @@ using System.Web.Http;
 namespace WebAPI.Controllers
 {
     [ExceptionFilter]
-    public class CustomerController : ApiController
+    public class ConsultaController : ApiController
     {
         
-        // GET api/customer
+        // GET api/Consulta
         public IHttpActionResult Get()
         {
 
-            var mng = new CustomerManager();
-            var lstCustomers = mng.RetrieveAll();   
-            return Ok(lstCustomers);
+            var mng = new ConsultaManager();
+            var lstConsultas = mng.RetrieveAll();   
+            return Ok(lstConsultas);
         }
 
-        // GET api/customer/5
-        public IHttpActionResult Get(string id)
+        // GET api/Consulta/5
+        public IHttpActionResult Get(int id)
         {
-            try
-            { 
-                var mng = new CustomerManager();
-                var customer = new Customer
+                var mng = new ConsultaManager();
+                var Consulta = new Consulta
                 {
-                    Id = id
+                    Id_Consulta = id
                 };
 
-                customer = mng.RetrieveById(customer);
-                return Ok(customer);
-            }
-            catch (BussinessException bex)
-            {
-                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
-            }
+                Consulta = mng.RetrieveById(Consulta);
+                return Ok(Consulta);
+ 
         }
 
         // POST api/values

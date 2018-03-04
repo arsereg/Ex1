@@ -8,39 +8,39 @@ using System.Threading.Tasks;
 
 namespace Testing
 {
-    public class CustomerManager
+    public class ConsultaManager
     {
-        private CustomerCrudFactory crudCustomer;
+        private ConsultaCrudFactory crudConsulta;
 
-        public CustomerManager()
+        public ConsultaManager()
         {
-            crudCustomer = new CustomerCrudFactory();
+            crudConsulta = new ConsultaCrudFactory();
         }
 
-        public void Create(Customer customer)
+        public void Create(Consulta Consulta)
         {
 
-                var c = crudCustomer.Retrieve<Customer>(customer);
+                var c = crudConsulta.Retrieve<Consulta>(Consulta);
         }
 
-        public List<Customer> RetrieveAll()
+        public List<Consulta> RetrieveAll()
         {
-            return crudCustomer.RetrieveAll<Customer>();
+            return crudConsulta.RetrieveAll<Consulta>();
         }
 
-        public Customer RetrieveById(Customer customer)
+        public Consulta RetrieveById(Consulta Consulta)
         {
-            return crudCustomer.Retrieve<Customer>(customer);
+            return crudConsulta.Retrieve<Consulta>(Consulta);
         }
 
-        internal void Update(Customer customer)
+        internal void Update(Consulta Consulta)
         {
-            crudCustomer.Update(customer);
+            crudConsulta.Update(Consulta);
         }
 
-        internal void Delete(Customer customer)
+        internal void Delete(Consulta Consulta)
         {
-            crudCustomer.Delete(customer);
+            crudConsulta.Delete(Consulta);
         }
     }
 }

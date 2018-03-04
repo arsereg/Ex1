@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crud\CustomerCrudFactory.cs" />
+    <Compile Include="Crud\ConsultaCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
     <Compile Include="Mapper\ConsultaMapper.cs" />
     <Compile Include="Mapper\EntityMapper.cs" />
